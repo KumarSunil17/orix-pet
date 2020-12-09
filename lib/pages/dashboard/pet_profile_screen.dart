@@ -160,7 +160,11 @@ class PetProfileScreen extends StatelessWidget {
                 padding: const EdgeInsets.all(12),
                 child: Row(
                   children: [
-                    CircleAvatar(radius: 22),
+                    CircleAvatar(
+                      radius: 22,
+                      backgroundImage: NetworkImage(
+                          'https://img.freepik.com/free-photo/girl_23-2148168226.jpg?size=338&ext=jpg'),
+                    ),
                     SizedBox(width: 12),
                     Expanded(
                       child: Column(

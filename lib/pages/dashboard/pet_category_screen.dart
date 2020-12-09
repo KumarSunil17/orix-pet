@@ -46,12 +46,23 @@ class _PetCategoryScreenState extends State<PetCategoryScreen> {
                 height: 130,
                 width: double.infinity,
                 decoration: BoxDecoration(
-                    color: Colors.amber,
-                    borderRadius: BorderRadius.circular(12)),
+                    color: Colors.transparent,
+                    borderRadius: BorderRadius.circular(12),
+                    image: DecorationImage(
+                        fit: BoxFit.cover,
+                        image: NetworkImage(
+                            'https://img.freepik.com/free-photo/group-portrait-adorable-puppies_53876-64778.jpg?size=626&ext=jpg'))),
               ),
-              CatCategorySection(),
-              CatCategorySection(),
-              CatCategorySection()
+              CatCategorySection(
+                name: 'Dog\'s',
+                image:
+                    'https://img.freepik.com/free-vector/cute-pug-dog-playing-box-cartoon_138676-2306.jpg?size=338&ext=jpg',
+              ),
+              CatCategorySection(
+                name: 'Cat\'s',
+                image:
+                    'https://img.freepik.com/free-vector/cute-corgi-dog-playing-box-cartoon_138676-2307.jpg?size=338&ext=jpg',
+              ),
             ]))
       ]),
     );
@@ -59,6 +70,11 @@ class _PetCategoryScreenState extends State<PetCategoryScreen> {
 }
 
 class CatCategorySection extends StatelessWidget {
+  final String image;
+  final String name;
+
+  const CatCategorySection({this.image, this.name});
+
   @override
   Widget build(BuildContext context) {
     final theme = Theme.of(context);
@@ -75,10 +91,13 @@ class CatCategorySection extends StatelessWidget {
             child: Row(
               children: [
                 SizedBox(width: 12),
-                Icon(Icons.pets),
+                CircleAvatar(
+                  backgroundImage: NetworkImage(image),
+                  radius: 20,
+                ),
                 SizedBox(width: 4),
                 Text(
-                  'Cat\'s',
+                  name,
                   style: TextStyle(
                       color: Colors.black,
                       fontSize: 16,
@@ -130,7 +149,12 @@ class PetCategoryCard extends StatelessWidget {
         )),
         child: Stack(
           children: [
-            Positioned.fill(child: ColoredBox(color: Colors.amber)),
+            Positioned.fill(
+                bottom: 80,
+                child: Image.network(
+                  'https://images.unsplash.com/photo-1548681528-6a5c45b66b42?ixid=MXwxMjA3fDB8MHxzZWFyY2h8N3x8cGV0fGVufDB8fDB8&ixlib=rb-1.2.1&auto=format&fit=fill&w=500&q=60',
+                  fit: BoxFit.cover,
+                )),
             Positioned(
                 left: 0,
                 right: 0,

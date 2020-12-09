@@ -1,20 +1,19 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_svg/flutter_svg.dart';
-import 'package:orix_pet/pages/dashboard/pet_category_screen.dart';
+import 'package:flutter_svg/svg.dart';
 
-import '../dashboard_screen.dart';
+import '../video_call_screen.dart';
 
 ///
-/// Created by Sunil Kumar on 07-12-2020 07:36 PM.
+/// Created by Sunil Kumar on 08-12-2020 09:30 PM.
 ///
-class PetSliverDelegate extends SliverPersistentHeaderDelegate {
+class ChatSliverDelegate extends SliverPersistentHeaderDelegate {
   final double expandedHeight;
   final PreferredSizeWidget bottom;
   final Widget title;
   final Widget leading;
   final Widget trailing;
   final EdgeInsets appBarPadding;
-  PetSliverDelegate(
+  ChatSliverDelegate(
       {@required this.expandedHeight,
       this.bottom,
       this.title,
@@ -31,7 +30,6 @@ class PetSliverDelegate extends SliverPersistentHeaderDelegate {
     final theme = Theme.of(context);
     return Container(
         height: expandedHeight,
-        color: theme.scaffoldBackgroundColor,
         child: Stack(children: [
           ///bottom
           if (bottom != null)
@@ -54,6 +52,7 @@ class PetSliverDelegate extends SliverPersistentHeaderDelegate {
             child: Align(
               alignment: Alignment.topCenter,
               child: Container(
+                clipBehavior: Clip.antiAlias,
                 alignment: Alignment.topCenter,
                 height: bottom != null
                     ? expandedHeight - bottom.preferredSize.height
@@ -128,37 +127,58 @@ class PetSliverDelegate extends SliverPersistentHeaderDelegate {
             child: Opacity(
               opacity: percent,
               child: Container(
-                decoration: BoxDecoration(
-                    color: Colors.white,
-                    borderRadius: BorderRadius.circular(42),
-                    boxShadow: [
-                      BoxShadow(
-                          color: Colors.grey[100],
-                          blurRadius: 8,
-                          offset: Offset(0, 2),
-                          spreadRadius: 0)
-                    ]),
+                padding: const EdgeInsets.all(12),
                 child: Row(
                   children: [
+                    CircleAvatar(
+                      radius: 22,
+                      backgroundImage: NetworkImage(
+                          'https://img.freepik.com/free-photo/girl_23-2148168226.jpg?size=338&ext=jpg'),
+                    ),
+                    SizedBox(width: 12),
                     Expanded(
-                        child: Padding(
-                      padding: const EdgeInsets.only(left: 21, right: 8),
-                      child: TextField(
-                          decoration: InputDecoration(
-                              border: InputBorder.none, hintText: 'Search')),
-                    )),
-                    Material(
-                      type: MaterialType.circle,
-                      color: theme.primaryColor,
-                      child: InkWell(
-                        onTap: () {},
-                        customBorder: CircleBorder(),
-                        child: Padding(
-                          padding: const EdgeInsets.all(8),
-                          child:
-                              Icon(Icons.search_rounded, color: Colors.white),
-                        ),
+                      child: Column(
+                        crossAxisAlignment: CrossAxisAlignment.start,
+                        children: [
+                          Text(
+                            'Albert Flores',
+                            style: TextStyle(
+                                fontSize: 16, fontWeight: FontWeight.w800),
+                          ),
+                          Text(
+                            'Sia\'s owner',
+                            style: TextStyle(fontSize: 12, color: Colors.grey),
+                          )
+                        ],
                       ),
+                    ),
+                    SizedBox(width: 8),
+                    Material(
+                      borderRadius: BorderRadius.circular(8),
+                      color: Colors.blue.withOpacity(0.3),
+                      clipBehavior: Clip.antiAlias,
+                      child: IconButton(
+                          padding: EdgeInsets.zero,
+                          constraints:
+                              BoxConstraints.tightFor(width: 32, height: 32),
+                          onPressed: () {},
+                          icon: Icon(Icons.call, color: Colors.blue, size: 20)),
+                    ),
+                    SizedBox(width: 8),
+                    Material(
+                      borderRadius: BorderRadius.circular(8),
+                      color: Colors.red.withOpacity(0.3),
+                      clipBehavior: Clip.antiAlias,
+                      child: IconButton(
+                          padding: EdgeInsets.zero,
+                          constraints:
+                              BoxConstraints.tightFor(width: 32, height: 32),
+                          onPressed: () {
+                            Navigator.pushNamed(
+                                context, VideoCallScreen.routeName);
+                          },
+                          icon: Icon(Icons.videocam,
+                              color: Colors.red, size: 20)),
                     ),
                   ],
                 ),

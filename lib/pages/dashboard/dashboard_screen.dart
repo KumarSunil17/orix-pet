@@ -5,6 +5,8 @@ import 'package:orix_pet/pages/dashboard/widgets/dashboard_bottom_nav.dart';
 import 'package:orix_pet/pages/post/widgets/post_card.dart';
 import 'package:orix_pet/widgets/accept_deny_switch/accept_deny_switch.dart';
 import 'package:orix_pet/widgets/orix_pet_background.dart';
+import 'messages_screen.dart';
+import 'home_screen.dart';
 import 'widgets/dashboard_header.dart';
 
 ///
@@ -22,24 +24,30 @@ class _DashboardScreenState extends State<DashboardScreen> {
   @override
   Widget build(BuildContext context) {
     final theme = Theme.of(context);
-    return Scaffold(
-      body: CustomScrollView(slivers: [
-        SliverPersistentHeader(
-          pinned: true,
-          floating: true,
-          delegate: DashboardSliverDelegate(
-            expandedHeight: 260,
-          ),
+    return WillPopScope(
+      onWillPop: () async {
+        if (bottomNavCurrentIndex.value == 0)
+          return true;
+        else {
+          bottomNavCurrentIndex.value = 0;
+          return false;
+        }
+      },
+      child: Scaffold(
+        body: ValueListenableBuilder<int>(
+          valueListenable: bottomNavCurrentIndex,
+          builder: (context, i, child) {
+            switch (i) {
+              case 0:
+                return HomeScreen();
+              case 2:
+                return MessagesScreen();
+            }
+            return HomeScreen();
+          },
         ),
-        SliverToBoxAdapter(
-            child: ListView.builder(
-                padding: const EdgeInsets.symmetric(vertical: 12),
-                physics: const NeverScrollableScrollPhysics(),
-                shrinkWrap: true,
-                itemBuilder: (ctx, i) => PetPostCard(),
-                itemCount: 32)),
-      ]),
-      bottomNavigationBar: DashboardBottomNav(),
+        bottomNavigationBar: DashboardBottomNav(),
+      ),
     );
   }
 }
