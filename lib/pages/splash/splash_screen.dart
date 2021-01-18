@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/scheduler.dart';
 import 'package:flutter_svg/flutter_svg.dart';
+import 'package:orix_pet/pages/authentication/login_screen.dart';
 import 'package:orix_pet/pages/dashboard/dashboard_screen.dart';
 import 'package:orix_pet/pages/intro/intro_screen.dart';
 import 'package:orix_pet/widgets/orix_pet_background.dart';
@@ -20,7 +21,7 @@ class _SplashScreenState extends State<SplashScreen> {
   void initState() {
     SchedulerBinding.instance.addPostFrameCallback((timeStamp) {
       Future.delayed(Duration(seconds: 3)).then((value) {
-        Navigator.pushReplacementNamed(context, DashboardScreen.routeName);
+        Navigator.pushReplacementNamed(context, IntroScreen.routeName);
       });
     });
     super.initState();

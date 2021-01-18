@@ -9,8 +9,13 @@ class PetAppBar extends StatelessWidget {
   final Widget leading;
   final Widget title;
   final Widget trailing;
-
-  PetAppBar({this.appBarPadding, this.leading, this.title, this.trailing});
+  final double elevation;
+  PetAppBar(
+      {this.appBarPadding,
+      this.leading,
+      this.title,
+      this.trailing,
+      this.elevation});
 
   @override
   Widget build(BuildContext context) {
@@ -23,7 +28,7 @@ class PetAppBar extends StatelessWidget {
           boxShadow: [
             BoxShadow(
                 color: Colors.black12,
-                blurRadius: 15,
+                blurRadius: elevation ?? 15,
                 offset: Offset(0, 1),
                 spreadRadius: 1)
           ]),
@@ -61,16 +66,7 @@ class PetAppBar extends StatelessWidget {
                 clipBehavior: Clip.antiAlias,
                 child: IconButton(
                   onPressed: () {},
-                  icon: SvgPicture.string(
-                      '''<svg xmlns="http://www.w3.org/2000/svg" width="18" height="12.5" viewBox="0 0 18 12.5">
-  <g id="Group_9" data-name="Group 9" transform="translate(1008 -663)">
-      <rect id="Rectangle_9" data-name="Rectangle 9" width="18" height="2.5" rx="1.25" transform="translate(-1008 668)" fill="#101010"/>
-      <rect id="Rectangle_10" data-name="Rectangle 10" width="7" height="2.5" rx="1.25" transform="translate(-997 663)" fill="#101010"/>
-      <rect id="Rectangle_11" data-name="Rectangle 11" width="7" height="2.5" rx="1.25" transform="translate(-1008 673)" fill="#101010"/>
-  </g>
-</svg>
-
-'''),
+                  icon: SvgPicture.asset('assets/icons/menu.svg'),
                 ),
               )
             else

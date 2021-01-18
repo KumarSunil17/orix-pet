@@ -3,7 +3,7 @@ import 'package:orix_pet/pages/dashboard/widgets/dashboard_header.dart';
 import 'package:orix_pet/pages/dashboard/widgets/pet_sliver_delegate.dart';
 import 'package:orix_pet/pages/post/widgets/post_card.dart';
 
-import 'pet_profile_screen.dart';
+import '../profile/pet_profile_screen.dart';
 
 ///
 /// Created by Sunil Kumar on 07-12-2020 07:11 PM.

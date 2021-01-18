@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/scheduler.dart';
 import 'package:flutter_svg/svg.dart';
+import 'package:orix_pet/pages/dashboard/profile_screen.dart';
 import 'package:orix_pet/pages/dashboard/widgets/dashboard_bottom_nav.dart';
 import 'package:orix_pet/pages/post/widgets/post_card.dart';
 import 'package:orix_pet/widgets/accept_deny_switch/accept_deny_switch.dart';
@@ -42,6 +43,8 @@ class _DashboardScreenState extends State<DashboardScreen> {
                 return HomeScreen();
               case 2:
                 return MessagesScreen();
+              case 3:
+                return ProfileScreen();
             }
             return HomeScreen();
           },

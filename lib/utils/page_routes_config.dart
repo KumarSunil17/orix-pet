@@ -4,7 +4,8 @@ import 'package:orix_pet/pages/authentication/signup_screen.dart';
 import 'package:orix_pet/pages/dashboard/chat_screen.dart';
 import 'package:orix_pet/pages/dashboard/dashboard_screen.dart';
 import 'package:orix_pet/pages/dashboard/pet_category_screen.dart';
-import 'package:orix_pet/pages/dashboard/pet_profile_screen.dart';
+import 'file:///D:/Flutter_app/orix_pet/lib/pages/profile/pet_profile_screen.dart';
+import 'package:orix_pet/pages/dashboard/settings_screen.dart';
 import 'package:orix_pet/pages/dashboard/video_call_screen.dart';
 import 'package:orix_pet/pages/intro/intro_screen.dart';
 import 'package:orix_pet/pages/splash/splash_screen.dart';
@@ -34,6 +35,8 @@ class PageRouteConfig {
         return MaterialPageRoute(builder: (c) => VideoCallScreen());
       case ChatScreen.routeName:
         return MaterialPageRoute(builder: (c) => ChatScreen());
+      case SettingsScreen.routeName:
+        return MaterialPageRoute(builder: (c) => SettingsScreen());
       default:
         return MaterialPageRoute(builder: (c) => SplashScreen());
     }

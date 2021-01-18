@@ -1,3 +1,4 @@
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
 ///
@@ -10,57 +11,60 @@ class DashboardBottomNav extends StatelessWidget {
   Widget build(BuildContext context) {
     final theme = Theme.of(context);
 
-    return Container(
-      height: 68,
-      decoration: BoxDecoration(
-          color: theme.scaffoldBackgroundColor,
-          borderRadius: BorderRadius.vertical(top: Radius.circular(22)),
-          boxShadow: [
-            BoxShadow(
-                color: Colors.grey[200],
-                offset: Offset(0, -1),
-                blurRadius: 2,
-                spreadRadius: 2)
-          ]),
-      padding: const EdgeInsets.fromLTRB(22, 0, 22, 4),
-      child: ValueListenableBuilder<int>(
-        valueListenable: bottomNavCurrentIndex,
-        builder: (context, i, child) => Row(
-          children: [
-            Expanded(
-              child: _BottomNavItem(
-                icon: Icon(Icons.home_outlined),
-                label: 'Home',
-                isSelected: i == 0,
-                onTap: () => _onChangeIndex(0),
+    return DefaultTabController(
+      length: 5,
+      child: Container(
+        height: 68,
+        decoration: BoxDecoration(
+            color: theme.scaffoldBackgroundColor,
+            borderRadius: BorderRadius.vertical(top: Radius.circular(22)),
+            boxShadow: [
+              BoxShadow(
+                  color: Colors.grey[200],
+                  offset: Offset(0, -1),
+                  blurRadius: 2,
+                  spreadRadius: 2)
+            ]),
+        padding: const EdgeInsets.fromLTRB(22, 0, 22, 4),
+        child: ValueListenableBuilder<int>(
+          valueListenable: bottomNavCurrentIndex,
+          builder: (context, i, child) => Row(
+            children: [
+              Expanded(
+                child: _BottomNavItem(
+                  icon: Icon(Icons.home_outlined),
+                  label: 'Home',
+                  isSelected: i == 0,
+                  onTap: () => _onChangeIndex(0),
+                ),
               ),
-            ),
-            Expanded(
-              child: _BottomNavItem(
-                icon: Icon(Icons.group_outlined),
-                label: 'Group',
-                isSelected: i == 1,
-                onTap: () => _onChangeIndex(1),
+              Expanded(
+                child: _BottomNavItem(
+                  icon: Icon(Icons.group_outlined),
+                  label: 'Group',
+                  isSelected: i == 1,
+                  onTap: () => _onChangeIndex(1),
+                ),
               ),
-            ),
-            _CenterBottomNavItem(onTap: () {}),
-            Expanded(
-              child: _BottomNavItem(
-                icon: Icon(Icons.chat_outlined),
-                label: 'Chat',
-                isSelected: i == 2,
-                onTap: () => _onChangeIndex(2),
+              _CenterBottomNavItem(onTap: () {}),
+              Expanded(
+                child: _BottomNavItem(
+                  icon: Icon(Icons.chat_outlined),
+                  label: 'Chat',
+                  isSelected: i == 2,
+                  onTap: () => _onChangeIndex(2),
+                ),
               ),
-            ),
-            Expanded(
-              child: _BottomNavItem(
-                icon: Icon(Icons.notifications_none_rounded),
-                label: 'Notify',
-                isSelected: i == 3,
-                onTap: () => _onChangeIndex(3),
+              Expanded(
+                child: _BottomNavItem(
+                  icon: Icon(Icons.person_outline_rounded),
+                  label: 'Profile',
+                  isSelected: i == 3,
+                  onTap: () => _onChangeIndex(3),
+                ),
               ),
-            ),
-          ],
+            ],
+          ),
         ),
       ),
     );

@@ -3,9 +3,9 @@ import 'package:orix_pet/pages/dashboard/widgets/pet_app_bar.dart';
 import 'package:orix_pet/widgets/buttons.dart';
 import 'package:orix_pet/widgets/orix_fab.dart';
 
-import 'pet_category_screen.dart';
-import 'video_call_screen.dart';
-import 'widgets/pet_sliver_delegate.dart';
+import '../dashboard/pet_category_screen.dart';
+import '../dashboard/video_call_screen.dart';
+import '../dashboard/widgets/pet_sliver_delegate.dart';
 
 ///
 /// Created by Sunil Kumar on 07-12-2020 08:22 PM.
@@ -29,18 +29,20 @@ class PetProfileScreen extends StatelessWidget {
                 aspectRatio: 4 / 4.1,
                 child: Container(
                   clipBehavior: Clip.antiAlias,
-                  decoration: BoxDecoration(
-                      color: Colors.amber,
-                      boxShadow: [
-                        BoxShadow(
-                            color: Colors.black12,
-                            blurRadius: 15,
-                            offset: Offset(0, 1))
-                      ],
-                      borderRadius: BorderRadius.all(Radius.circular(34))),
+                  decoration: BoxDecoration(boxShadow: [
+                    BoxShadow(
+                        color: Colors.black12,
+                        blurRadius: 15,
+                        offset: Offset(0, 1))
+                  ], borderRadius: BorderRadius.all(Radius.circular(34))),
                   child: Stack(
                     children: [
-                      Positioned.fill(child: ColoredBox(color: Colors.amber)),
+                      Positioned.fill(
+                          bottom: 100,
+                          child: Image.network(
+                            'https://images.unsplash.com/photo-1548681528-6a5c45b66b42?ixid=MXwxMjA3fDB8MHxzZWFyY2h8N3x8cGV0fGVufDB8fDB8&ixlib=rb-1.2.1&auto=format&fit=fill&w=500&q=60',
+                            fit: BoxFit.cover,
+                          )),
                       Positioned(
                           left: 0,
                           right: 0,

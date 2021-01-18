@@ -58,7 +58,9 @@ class MessagesScreen extends StatelessWidget {
               padding: const EdgeInsets.symmetric(vertical: 12),
               physics: const NeverScrollableScrollPhysics(),
               shrinkWrap: true,
-              itemBuilder: (ctx, i) => MessageUserTile(),
+              itemBuilder: (ctx, i) => i % 2 == 0
+                  ? MessageUserTile.online()
+                  : MessageUserTile.offline(),
               itemCount: 32)),
     ]);
   }
@@ -97,6 +99,11 @@ class MessageStoryWidget extends StatelessWidget {
 }
 
 class MessageUserTile extends StatelessWidget {
+  final bool online;
+
+  MessageUserTile.online() : this.online = true;
+  MessageUserTile.offline() : this.online = false;
+
   @override
   Widget build(BuildContext context) {
     return GestureDetector(
@@ -136,7 +143,7 @@ class MessageUserTile extends StatelessWidget {
                       decoration: BoxDecoration(
                           border: Border.all(width: 1, color: Colors.white),
                           shape: BoxShape.circle,
-                          color: Colors.red),
+                          color: online ? Colors.green : Colors.red),
                     ))
               ],
             ),

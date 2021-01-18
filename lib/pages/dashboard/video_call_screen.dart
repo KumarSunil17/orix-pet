@@ -15,7 +15,14 @@ class VideoCallScreen extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       body: OrixPetBackground(
-        colors: [Colors.green, Colors.yellow, Colors.purple, Colors.blue],
+        colors: [
+          Color(0xff78F8B3),
+          Color(0xffF9D977),
+          Color(0xffAE7DF5),
+          Color(0xff69F4F9),
+          Color(0xffFFD864),
+          Color(0xff6AEBFF)
+        ],
         child: Stack(
           children: [
             Positioned.fill(

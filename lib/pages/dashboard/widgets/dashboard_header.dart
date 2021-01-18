@@ -79,16 +79,7 @@ class DashboardSliverDelegate extends SliverPersistentHeaderDelegate {
                         clipBehavior: Clip.antiAlias,
                         child: IconButton(
                           onPressed: () {},
-                          icon: SvgPicture.string(
-                              '''<svg xmlns="http://www.w3.org/2000/svg" width="18" height="12.5" viewBox="0 0 18 12.5">
-  <g id="Group_9" data-name="Group 9" transform="translate(1008 -663)">
-      <rect id="Rectangle_9" data-name="Rectangle 9" width="18" height="2.5" rx="1.25" transform="translate(-1008 668)" fill="#101010"/>
-      <rect id="Rectangle_10" data-name="Rectangle 10" width="7" height="2.5" rx="1.25" transform="translate(-997 663)" fill="#101010"/>
-      <rect id="Rectangle_11" data-name="Rectangle 11" width="7" height="2.5" rx="1.25" transform="translate(-1008 673)" fill="#101010"/>
-  </g>
-</svg>
-
-'''),
+                          icon: SvgPicture.asset('assets/icons/menu.svg'),
                         ),
                       )
                     ],
@@ -180,7 +171,10 @@ class CategoryCard extends StatelessWidget {
                   height: 54,
                   decoration: BoxDecoration(
                       color: Colors.pink.withOpacity(0.2),
-                      borderRadius: BorderRadius.circular(12)),
+                      borderRadius: BorderRadius.circular(12),
+                      image: DecorationImage(
+                          image: NetworkImage(
+                              'https://img.freepik.com/free-vector/adopt-pet-with-woman-dog_23-2148511804.jpg?size=338&ext=jpg'))),
                 ),
                 Padding(
                   padding: const EdgeInsets.all(8.0),
