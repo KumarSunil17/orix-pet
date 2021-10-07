@@ -76,9 +76,9 @@ class PostCardAction extends StatelessWidget {
   final int count;
   final String asset;
   final Color color;
-  final VoidCallback onPressed;
+  final VoidCallback? onPressed;
 
-  const PostCardAction({this.asset, this.color, this.count, this.onPressed});
+  const PostCardAction({required this.asset, required this.color, required this.count, this.onPressed});
   @override
   Widget build(BuildContext context) {
     return Material(

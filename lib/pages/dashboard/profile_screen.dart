@@ -18,7 +18,7 @@ class ProfileScreen extends StatefulWidget {
 
 class _ProfileScreenState extends State<ProfileScreen>
     with SingleTickerProviderStateMixin {
-  TabController _tabController;
+  late TabController _tabController;
   @override
   void initState() {
     super.initState();
@@ -77,7 +77,7 @@ class _ProfileScreenState extends State<ProfileScreen>
 class ProfileSliverDelegate extends SliverPersistentHeaderDelegate {
   final double expandedHeight = 340;
   final TabController tabController;
-  ProfileSliverDelegate({this.tabController});
+  ProfileSliverDelegate({required this.tabController});
 
   @override
   Widget build(

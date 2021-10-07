@@ -17,7 +17,7 @@ class ProfileScreen extends StatelessWidget {
                     BorderRadius.vertical(bottom: Radius.circular(22)),
                 boxShadow: [
                   BoxShadow(
-                      color: Colors.grey[200],
+                      color: Colors.grey.shade200,
                       blurRadius: 15,
                       offset: Offset(0, 2),
                       spreadRadius: 10)

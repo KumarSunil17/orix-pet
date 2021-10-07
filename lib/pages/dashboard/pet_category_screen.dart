@@ -73,7 +73,7 @@ class CatCategorySection extends StatelessWidget {
   final String image;
   final String name;
 
-  const CatCategorySection({this.image, this.name});
+  const CatCategorySection({required this.image, required this.name});
 
   @override
   Widget build(BuildContext context) {
@@ -201,7 +201,7 @@ class PetPostHashTag extends StatelessWidget {
   final String text;
   final Color color;
 
-  const PetPostHashTag({this.text, this.color = Colors.red});
+  const PetPostHashTag({required this.text, this.color = Colors.red});
 
   @override
   Widget build(BuildContext context) {

@@ -4,8 +4,8 @@ import 'package:flutter/material.dart';
 /// Created by Sunil Kumar on 25-11-2020 09:50 AM.
 ///
 class OrixFab extends StatefulWidget {
-  final VoidCallback onPressed;
-  final Widget child;
+  final VoidCallback? onPressed;
+  final Widget? child;
   OrixFab({this.onPressed, this.child});
 
   @override

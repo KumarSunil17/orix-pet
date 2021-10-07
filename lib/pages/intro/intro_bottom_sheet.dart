@@ -5,9 +5,9 @@ part of 'intro_screen.dart';
 ///
 class IntroBottomSheet extends StatelessWidget {
   final IntroModel introDatum;
-  final ValueChanged<int> onPageChanged;
+  final ValueChanged<int>? onPageChanged;
 
-  final PageController pageController;
+  final PageController? pageController;
   IntroBottomSheet(this.introDatum, {this.onPageChanged, this.pageController});
 
   @override
@@ -20,7 +20,7 @@ class IntroBottomSheet extends StatelessWidget {
             child: Column(children: [
               SizedBox(height: 8),
               OrixFab(onPressed: () {
-                pageController.nextPage(
+                pageController?.nextPage(
                     duration: Duration(milliseconds: 40),
                     curve: Curves.decelerate);
               }),
@@ -90,7 +90,7 @@ class IntroModel {
   String title;
   String description;
 
-  IntroModel({this.imagePath, this.title, this.description});
+  IntroModel({required this.imagePath, required this.title, required this.description});
 }
 
 final List<IntroModel> _introData = [

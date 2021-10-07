@@ -6,9 +6,9 @@ import 'package:flutter/material.dart';
 
 class OrixPrimaryButton extends StatefulWidget {
   final Widget child;
-  final VoidCallback onPressed;
+  final VoidCallback? onPressed;
 
-  const OrixPrimaryButton({this.child, this.onPressed, Key key})
+  const OrixPrimaryButton({required this.child, this.onPressed, Key? key})
       : super(key: key);
 
   @override
@@ -35,17 +35,18 @@ class OrixPrimaryButtonState extends State<OrixPrimaryButton> {
     final theme = Theme.of(context);
     return _isLoading
         ? Center(child: CircularProgressIndicator())
-        : RaisedButton(
+        : ElevatedButton(
             onPressed: widget.onPressed,
-            disabledTextColor: Colors.white,
-            shape:
-                RoundedRectangleBorder(borderRadius: BorderRadius.circular(12)),
-            padding: EdgeInsets.all(0.0),
-            textColor: Colors.white,
+            style: ElevatedButton.styleFrom(
+              shape: RoundedRectangleBorder(
+                  borderRadius: BorderRadius.circular(12)),
+              padding: EdgeInsets.all(0.0),
+              onPrimary: Colors.white,
+            ),
             child: Ink(
                 decoration: BoxDecoration(
                     gradient: LinearGradient(
-                        colors: [Colors.blue[400], theme.primaryColor],
+                        colors: [Colors.blue.shade400, theme.primaryColor],
                         begin: Alignment.topCenter,
                         end: Alignment.bottomCenter),
                     borderRadius: BorderRadius.circular(12)),
@@ -59,10 +60,11 @@ class OrixPrimaryButtonState extends State<OrixPrimaryButton> {
 }
 
 class OrixFlatButton extends StatefulWidget {
-  final Widget child;
-  final VoidCallback onPressed;
+  final Widget? child;
+  final VoidCallback? onPressed;
 
-  const OrixFlatButton({this.child, this.onPressed, Key key}) : super(key: key);
+  const OrixFlatButton({this.child, this.onPressed, Key? key})
+      : super(key: key);
 
   @override
   OrixFlatButtonState createState() => OrixFlatButtonState();
@@ -88,21 +90,22 @@ class OrixFlatButtonState extends State<OrixFlatButton> {
     final theme = Theme.of(context);
     return _isLoading
         ? Center(child: CircularProgressIndicator())
-        : FlatButton(
+        : TextButton(
             onPressed: widget.onPressed,
             child: Ink(
                 decoration:
                     BoxDecoration(borderRadius: BorderRadius.circular(12)),
                 child: Container(
                   constraints:
-                      BoxConstraints.tightFor(width: 350.0, height: 50.0),
+                      BoxConstraints.tightFor(width: 350.0, height: 34.0),
                   alignment: Alignment.center,
                   child: widget.child,
                 )),
-            textColor: theme.primaryColor,
-            color: Colors.white,
-            shape:
-                RoundedRectangleBorder(borderRadius: BorderRadius.circular(8)),
+            style: TextButton.styleFrom(
+                primary: theme.primaryColor,
+                backgroundColor: Colors.white,
+                shape: RoundedRectangleBorder(
+                    borderRadius: BorderRadius.circular(8))),
           );
   }
 }

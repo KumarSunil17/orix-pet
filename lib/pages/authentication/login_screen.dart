@@ -6,6 +6,8 @@ import 'package:orix_pet/widgets/buttons.dart';
 import 'package:orix_pet/widgets/orix_header.dart';
 import 'package:orix_pet/widgets/orix_pet_background.dart';
 
+import 'forgot_password.dart';
+
 ///
 /// Created by Sunil Kumar on 11-11-2020 10:15 AM.
 ///
@@ -22,7 +24,6 @@ class _LoginScreenState extends State<LoginScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      resizeToAvoidBottomPadding: false,
       resizeToAvoidBottomInset: false,
       body: OrixPetBackground(
         colors: const [
@@ -36,7 +37,8 @@ class _LoginScreenState extends State<LoginScreen> {
             children: [
               Positioned.fill(
                 child: ListView(
-                  padding: const EdgeInsets.symmetric(horizontal: 22),
+                  padding: EdgeInsets.fromLTRB(
+                      22, 0, 22, MediaQuery.of(context).viewInsets.bottom),
                   children: [
                     SizedBox(
                       height: 32,
@@ -58,7 +60,7 @@ class _LoginScreenState extends State<LoginScreen> {
                     SizedBox(height: 16),
                     TextFormField(
                       validator: (v) {
-                        if (v.trim().isEmpty) return '*required';
+                        if (v?.trim().isEmpty ?? true) return '*required';
                         return null;
                       },
                       autovalidateMode: AutovalidateMode.onUserInteraction,
@@ -87,7 +89,7 @@ class _LoginScreenState extends State<LoginScreen> {
                     SizedBox(height: 14),
                     TextFormField(
                       validator: (v) {
-                        if (v.trim().isEmpty) return '*required';
+                        if (v?.trim().isEmpty ?? true) return '*required';
                         return null;
                       },
                       obscureText: _visible,
@@ -128,7 +130,10 @@ class _LoginScreenState extends State<LoginScreen> {
                     Align(
                       alignment: Alignment.centerRight,
                       child: GestureDetector(
-                        onTap: () {},
+                        onTap: () {
+                          Navigator.pushNamed(
+                              context, ForgotPasswordScreen.routeName);
+                        },
                         behavior: HitTestBehavior.translucent,
                         child: Padding(
                           padding: const EdgeInsets.symmetric(vertical: 12),
@@ -144,9 +149,9 @@ class _LoginScreenState extends State<LoginScreen> {
                       key: _buttonKey,
                       child: Text('Log in'),
                       onPressed: () {
-                        _buttonKey.currentState.showLoader();
+                        _buttonKey.currentState?.showLoader();
                         Future.delayed(Duration(seconds: 2)).then((value) {
-                          _buttonKey.currentState.hideLoader();
+                          _buttonKey.currentState?.hideLoader();
                           Navigator.pushNamed(
                               context, DashboardScreen.routeName);
                         });

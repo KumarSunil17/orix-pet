@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:orix_pet/pages/authentication/forgot_password.dart';
 import 'package:orix_pet/pages/authentication/login_screen.dart';
 import 'package:orix_pet/pages/authentication/signup_screen.dart';
 import 'package:orix_pet/pages/dashboard/chat_screen.dart';
@@ -25,6 +26,8 @@ class PageRouteConfig {
         return MaterialPageRoute(builder: (c) => LoginScreen());
       case SignUpScreen.routeName:
         return MaterialPageRoute(builder: (c) => SignUpScreen());
+      case ForgotPasswordScreen.routeName:
+        return MaterialPageRoute(builder: (c) => ForgotPasswordScreen());
       case DashboardScreen.routeName:
         return MaterialPageRoute(builder: (c) => DashboardScreen());
       case PetCategoryScreen.routeName:

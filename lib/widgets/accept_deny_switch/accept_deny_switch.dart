@@ -18,9 +18,7 @@ import 'dart:ui';
 ///
 
 class AcceptDenySwitch extends StatefulWidget {
-  @required
   final SwitchState initialValue;
-  @required
   final Function(SwitchState) onChanged;
   final String textOffBefore;
   final String textOffAfter;
@@ -28,17 +26,17 @@ class AcceptDenySwitch extends StatefulWidget {
   final String textOnAfter;
   final Color colorOn;
   final Color colorOff;
-  final double textSize;
+  final double? textSize;
 
   AcceptDenySwitch(
-      {this.initialValue,
-      this.onChanged,
-      this.textOffBefore,
-      this.textOffAfter,
-      this.textOnBefore,
-      this.textOnAfter,
-      this.colorOn,
-      this.colorOff,
+      {required this.initialValue,
+      required this.onChanged,
+      required this.textOffBefore,
+      required this.textOffAfter,
+      required this.textOnBefore,
+      required this.textOnAfter,
+      required this.colorOn,
+      required this.colorOff,
       this.textSize});
 
   @override
@@ -139,7 +137,7 @@ class _RollingSwitchState extends State<AcceptDenySwitch> {
                     state = SwitchState.denied;
                   }
                 });
-                widget.onChanged?.call(state);
+                widget.onChanged.call(state);
               },
               confirmDismiss: (d) async => true,
             ),

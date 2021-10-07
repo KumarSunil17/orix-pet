@@ -10,7 +10,7 @@ import '../dashboard_screen.dart';
 
 class DashboardSliverDelegate extends SliverPersistentHeaderDelegate {
   final double expandedHeight;
-  DashboardSliverDelegate({@required this.expandedHeight});
+  DashboardSliverDelegate({required this.expandedHeight});
 
   @override
   Widget build(
@@ -102,7 +102,7 @@ class DashboardSliverDelegate extends SliverPersistentHeaderDelegate {
                     borderRadius: BorderRadius.circular(42),
                     boxShadow: [
                       BoxShadow(
-                          color: Colors.grey[100],
+                          color: Colors.grey.shade100,
                           blurRadius: 8,
                           offset: Offset(0, 2),
                           spreadRadius: 0)

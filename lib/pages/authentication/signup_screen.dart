@@ -19,7 +19,6 @@ class _SignUpScreenState extends State<SignUpScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      resizeToAvoidBottomPadding: false,
       resizeToAvoidBottomInset: false,
       body: OrixPetBackground(
         colors: const [
@@ -33,29 +32,28 @@ class _SignUpScreenState extends State<SignUpScreen> {
             children: [
               Positioned.fill(
                 child: ListView(
-                  padding: const EdgeInsets.symmetric(horizontal: 22),
+                  padding: EdgeInsets.fromLTRB(
+                      22, 0, 22, MediaQuery.of(context).viewInsets.bottom),
                   children: [
-                    SizedBox(
-                      height: 28,
-                    ),
+                    const SizedBox(height: 28),
                     OrixHeader(),
-                    SizedBox(height: 32),
-                    Text(
+                    const SizedBox(height: 32),
+                    const Text(
                       'Sign Up',
                       style:
                           TextStyle(fontSize: 21, fontWeight: FontWeight.w800),
                     ),
-                    Text(
+                    const Text(
                       'Enter your credentials to continue',
                       style: TextStyle(
                           color: Colors.grey,
                           fontSize: 16,
                           fontWeight: FontWeight.w500),
                     ),
-                    SizedBox(height: 16),
+                    const SizedBox(height: 16),
                     TextFormField(
                       validator: (v) {
-                        if (v.trim().isEmpty) return '*required';
+                        if (v?.trim().isEmpty ?? true) return '*required';
                         return null;
                       },
                       autovalidateMode: AutovalidateMode.onUserInteraction,
@@ -81,10 +79,10 @@ class _SignUpScreenState extends State<SignUpScreen> {
                               borderSide: BorderSide(color: Colors.grey)),
                           labelStyle: TextStyle(color: Colors.grey)),
                     ),
-                    SizedBox(height: 14),
+                    const SizedBox(height: 14),
                     TextFormField(
                       validator: (v) {
-                        if (v.trim().isEmpty) return '*required';
+                        if (v?.trim().isEmpty ?? true) return '*required';
                         return null;
                       },
                       autovalidateMode: AutovalidateMode.onUserInteraction,
@@ -110,10 +108,10 @@ class _SignUpScreenState extends State<SignUpScreen> {
                               borderSide: BorderSide(color: Colors.grey)),
                           labelStyle: TextStyle(color: Colors.grey)),
                     ),
-                    SizedBox(height: 14),
+                    const SizedBox(height: 14),
                     TextFormField(
                       validator: (v) {
-                        if (v.trim().isEmpty) return '*required';
+                        if (v?.trim().isEmpty ?? true) return '*required';
                         return null;
                       },
                       obscureText: _visible,
@@ -151,16 +149,16 @@ class _SignUpScreenState extends State<SignUpScreen> {
                               borderSide: BorderSide(color: Colors.grey)),
                           labelStyle: TextStyle(color: Colors.grey)),
                     ),
-                    SizedBox(height: 18),
+                    const SizedBox(height: 18),
                     OrixPrimaryButton(
                       child: Text('Sign up'),
                       onPressed: () {
                         Navigator.pushNamed(context, DashboardScreen.routeName);
                       },
                     ),
-                    SizedBox(height: 14),
+                    const SizedBox(height: 14),
                     Row(mainAxisAlignment: MainAxisAlignment.center, children: [
-                      Text('Already have an account?'),
+                      const Text('Already have an account?'),
                       GestureDetector(
                         onTap: () {
                           Navigator.pop(context);
@@ -174,7 +172,7 @@ class _SignUpScreenState extends State<SignUpScreen> {
                         ),
                       )
                     ]),
-                    SizedBox(height: 14),
+                    const SizedBox(height: 14),
                   ],
                 ),
               ),

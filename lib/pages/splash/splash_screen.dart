@@ -19,7 +19,7 @@ class SplashScreen extends StatefulWidget {
 class _SplashScreenState extends State<SplashScreen> {
   @override
   void initState() {
-    SchedulerBinding.instance.addPostFrameCallback((timeStamp) {
+    SchedulerBinding.instance?.addPostFrameCallback((timeStamp) {
       Future.delayed(Duration(seconds: 3)).then((value) {
         Navigator.pushReplacementNamed(context, IntroScreen.routeName);
       });

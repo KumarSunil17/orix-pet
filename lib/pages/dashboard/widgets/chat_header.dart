@@ -8,16 +8,16 @@ import '../video_call_screen.dart';
 ///
 class ChatSliverDelegate extends SliverPersistentHeaderDelegate {
   final double expandedHeight;
-  final PreferredSizeWidget bottom;
-  final Widget title;
-  final Widget leading;
-  final Widget trailing;
-  final EdgeInsets appBarPadding;
+  final PreferredSizeWidget? bottom;
+  final Widget? title;
+  final Widget? leading;
+  final Widget? trailing;
+  final EdgeInsets? appBarPadding;
   ChatSliverDelegate(
-      {@required this.expandedHeight,
+      {required this.expandedHeight,
       this.bottom,
       this.title,
-      this.leading,
+      required this.leading,
       this.trailing,
       this.appBarPadding});
 
@@ -40,7 +40,7 @@ class ChatSliverDelegate extends SliverPersistentHeaderDelegate {
               child: Opacity(
                   opacity: percent,
                   child: Container(
-                      height: bottom.preferredSize.height, child: bottom)),
+                      height: bottom!.preferredSize.height, child: bottom)),
             ),
 
           ///app bar
@@ -55,7 +55,7 @@ class ChatSliverDelegate extends SliverPersistentHeaderDelegate {
                 clipBehavior: Clip.antiAlias,
                 alignment: Alignment.topCenter,
                 height: bottom != null
-                    ? expandedHeight - bottom.preferredSize.height
+                    ? expandedHeight - bottom!.preferredSize.height
                     : expandedHeight,
                 padding:
                     appBarPadding ?? const EdgeInsets.fromLTRB(14, 14, 14, 14),
@@ -77,10 +77,10 @@ class ChatSliverDelegate extends SliverPersistentHeaderDelegate {
                         Image.asset('assets/icons/logo.png',
                             height: 42, width: 42)
                       else
-                        leading,
+                        leading!,
                       SizedBox(width: 6),
                       DefaultTextStyle(
-                        style: theme.textTheme.headline6.copyWith(
+                        style: theme.textTheme.headline6!.copyWith(
                             fontSize: 18, fontWeight: FontWeight.w800),
                         child: title == null
                             ? Text(
@@ -88,7 +88,7 @@ class ChatSliverDelegate extends SliverPersistentHeaderDelegate {
                                 style: TextStyle(
                                     fontSize: 18, fontWeight: FontWeight.w800),
                               )
-                            : title,
+                            : title!,
                       ),
                       Spacer(),
                       if (trailing == null)
@@ -111,7 +111,7 @@ class ChatSliverDelegate extends SliverPersistentHeaderDelegate {
                           ),
                         )
                       else
-                        trailing
+                        trailing!
                     ],
                   ),
                 ),

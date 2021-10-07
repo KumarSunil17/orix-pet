@@ -5,11 +5,11 @@ import 'package:flutter_svg/svg.dart';
 /// Created by Sunil Kumar on 07-12-2020 08:30 PM.
 ///
 class PetAppBar extends StatelessWidget {
-  final EdgeInsets appBarPadding;
-  final Widget leading;
-  final Widget title;
-  final Widget trailing;
-  final double elevation;
+  final EdgeInsets? appBarPadding;
+  final Widget? leading;
+  final Widget? title;
+  final Widget? trailing;
+  final double? elevation;
   PetAppBar(
       {this.appBarPadding,
       this.leading,
@@ -45,10 +45,10 @@ class PetAppBar extends StatelessWidget {
               else
                 Image.asset('assets/icons/logo.png', height: 42, width: 42)
             else
-              leading,
+              leading!,
             SizedBox(width: 6),
             DefaultTextStyle(
-              style: theme.textTheme.headline6
+              style: theme.textTheme.headline6!
                   .copyWith(fontSize: 18, fontWeight: FontWeight.w800),
               child: title == null
                   ? Text(
@@ -56,7 +56,7 @@ class PetAppBar extends StatelessWidget {
                       style:
                           TextStyle(fontSize: 18, fontWeight: FontWeight.w800),
                     )
-                  : title,
+                  : title!,
             ),
             Spacer(),
             if (trailing == null)
@@ -70,7 +70,7 @@ class PetAppBar extends StatelessWidget {
                 ),
               )
             else
-              trailing
+              trailing!
           ],
         ),
       ),

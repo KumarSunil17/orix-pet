@@ -8,8 +8,9 @@ class OrixTabIndicator extends Decoration {
   final Color indicatorColor;
   OrixTabIndicator(
       {this.indicatorColor = Colors.amber, this.indicatorHeight = 8});
+
   @override
-  BoxPainter createBoxPainter([onChanged]) {
+  BoxPainter createBoxPainter([VoidCallback? onChanged]) {
     return _IndicatorPainter(this, onChanged);
   }
 }
@@ -19,13 +20,11 @@ class _IndicatorPainter extends BoxPainter {
   _IndicatorPainter(this.authTabIndicator, onChanged) : super(onChanged);
   @override
   void paint(Canvas canvas, Offset offset, ImageConfiguration configuration) {
-    Rect rect = Offset(
-            offset.dx + configuration.size.width / 2 - 20,
-            (configuration.size.height - authTabIndicator.indicatorHeight ??
-                8)) &
-        Size(40, authTabIndicator.indicatorHeight ?? 8);
+    Rect rect = Offset(offset.dx + configuration.size!.width / 2 - 20,
+            (configuration.size!.height - authTabIndicator.indicatorHeight)) &
+        Size(40, authTabIndicator.indicatorHeight);
     final Paint paint = Paint();
-    paint.color = authTabIndicator.indicatorColor ?? Colors.amber;
+    paint.color = authTabIndicator.indicatorColor;
     paint.style = PaintingStyle.fill;
     canvas.drawRRect(
         RRect.fromRectAndCorners(

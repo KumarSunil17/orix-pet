@@ -1,10 +1,10 @@
 import 'package:flutter/material.dart';
 
 class UserCircleAvatar extends StatelessWidget {
-  final String userId;
-  final String name;
+  final String? userId;
+  final String? name;
   final String imageUrl;
-  final double radius;
+  final double? radius;
   const UserCircleAvatar(this.imageUrl, {this.userId, this.name, this.radius});
 
   @override

@@ -20,7 +20,7 @@ class DashboardBottomNav extends StatelessWidget {
             borderRadius: BorderRadius.vertical(top: Radius.circular(22)),
             boxShadow: [
               BoxShadow(
-                  color: Colors.grey[200],
+                  color: Colors.grey.shade200,
                   offset: Offset(0, -1),
                   blurRadius: 2,
                   spreadRadius: 2)
@@ -79,8 +79,12 @@ class _BottomNavItem extends StatelessWidget {
   final Widget icon;
   final String label;
   final bool isSelected;
-  final VoidCallback onTap;
-  _BottomNavItem({this.icon, this.label, this.isSelected, this.onTap});
+  final VoidCallback? onTap;
+  _BottomNavItem(
+      {required this.icon,
+      required this.label,
+      this.isSelected = false,
+      this.onTap});
 
   @override
   Widget build(BuildContext context) {
@@ -126,7 +130,7 @@ class _BottomNavItem extends StatelessWidget {
 }
 
 class _CenterBottomNavItem extends StatelessWidget {
-  final VoidCallback onTap;
+  final VoidCallback? onTap;
 
   _CenterBottomNavItem({this.onTap});
 

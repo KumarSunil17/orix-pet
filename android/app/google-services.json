@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "872186926717",
+    "project_id": "orixpet-274b8",
+    "storage_bucket": "orixpet-274b8.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:872186926717:android:9436a040fe25b9d1900314",
+        "android_client_info": {
+          "package_name": "com.kumarsunil17.orix_pet"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "872186926717-jp3jqqhec7212vl8ijpd429eslfgqmhc.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCu4bi_lMS8mSCZQdEdYyx6ssX3F5jREas"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "872186926717-jp3jqqhec7212vl8ijpd429eslfgqmhc.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

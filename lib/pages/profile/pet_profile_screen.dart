@@ -154,7 +154,7 @@ class PetProfileScreen extends StatelessWidget {
                     color: Colors.white,
                     boxShadow: [
                       BoxShadow(
-                          color: Colors.grey[300],
+                          color: Colors.grey.shade300,
                           blurRadius: 2,
                           offset: Offset(0, 1))
                     ],

@@ -7,8 +7,8 @@ import 'package:flutter/material.dart';
 ///
 class OrixPetBackground extends StatelessWidget {
   final List<Color> colors;
-  final Widget child;
-  OrixPetBackground({this.colors, this.child});
+  final Widget? child;
+  OrixPetBackground({required this.colors, this.child});
 
   @override
   Widget build(BuildContext context) {
@@ -18,7 +18,7 @@ class OrixPetBackground extends StatelessWidget {
       child: Stack(
         children: [
           Positioned.fill(
-            child: ColoredBox(color: Colors.blue[50]),
+            child: ColoredBox(color: Colors.blue.shade50),
           ),
           ...colors
               .map((e) => Align(
@@ -65,10 +65,10 @@ class OrixPetBackground extends StatelessWidget {
 
 class BackgroundDecoration {
   Color color;
-  double height, width, top, left, right, bottom;
+  double? height, width, top, left, right, bottom;
 
   BackgroundDecoration(
-      {this.color,
+      {required this.color,
       this.height,
       this.width,
       this.top,

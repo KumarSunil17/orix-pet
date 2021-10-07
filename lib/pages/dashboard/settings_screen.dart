@@ -61,7 +61,7 @@ class SettingsScreen extends StatelessWidget {
 class SettingsTile extends StatelessWidget {
   final String title, subtitle;
 
-  final Widget trailing;
+  final Widget? trailing;
 
   SettingsTile(this.title, this.subtitle, {this.trailing});
 

@@ -9,13 +9,13 @@ import '../dashboard_screen.dart';
 ///
 class PetSliverDelegate extends SliverPersistentHeaderDelegate {
   final double expandedHeight;
-  final PreferredSizeWidget bottom;
-  final Widget title;
-  final Widget leading;
-  final Widget trailing;
-  final EdgeInsets appBarPadding;
+  final PreferredSizeWidget? bottom;
+  final Widget? title;
+  final Widget? leading;
+  final Widget? trailing;
+  final EdgeInsets? appBarPadding;
   PetSliverDelegate(
-      {@required this.expandedHeight,
+      {required this.expandedHeight,
       this.bottom,
       this.title,
       this.leading,
@@ -42,7 +42,7 @@ class PetSliverDelegate extends SliverPersistentHeaderDelegate {
               child: Opacity(
                   opacity: percent,
                   child: Container(
-                      height: bottom.preferredSize.height, child: bottom)),
+                      height: bottom!.preferredSize.height, child: bottom)),
             ),
 
           ///app bar
@@ -56,7 +56,7 @@ class PetSliverDelegate extends SliverPersistentHeaderDelegate {
               child: Container(
                 alignment: Alignment.topCenter,
                 height: bottom != null
-                    ? expandedHeight - bottom.preferredSize.height
+                    ? expandedHeight - bottom!.preferredSize.height
                     : expandedHeight,
                 padding:
                     appBarPadding ?? const EdgeInsets.fromLTRB(14, 14, 14, 14),
@@ -78,10 +78,10 @@ class PetSliverDelegate extends SliverPersistentHeaderDelegate {
                         Image.asset('assets/icons/logo.png',
                             height: 42, width: 42)
                       else
-                        leading,
+                        leading!,
                       SizedBox(width: 6),
                       DefaultTextStyle(
-                        style: theme.textTheme.headline6.copyWith(
+                        style: theme.textTheme.headline6!.copyWith(
                             fontSize: 18, fontWeight: FontWeight.w800),
                         child: title == null
                             ? Text(
@@ -89,7 +89,7 @@ class PetSliverDelegate extends SliverPersistentHeaderDelegate {
                                 style: TextStyle(
                                     fontSize: 18, fontWeight: FontWeight.w800),
                               )
-                            : title,
+                            : title!,
                       ),
                       Spacer(),
                       if (trailing == null)
@@ -103,7 +103,7 @@ class PetSliverDelegate extends SliverPersistentHeaderDelegate {
                           ),
                         )
                       else
-                        trailing
+                        trailing!
                     ],
                   ),
                 ),
@@ -124,7 +124,7 @@ class PetSliverDelegate extends SliverPersistentHeaderDelegate {
                     borderRadius: BorderRadius.circular(42),
                     boxShadow: [
                       BoxShadow(
-                          color: Colors.grey[100],
+                          color: Colors.grey.shade100,
                           blurRadius: 8,
                           offset: Offset(0, 2),
                           spreadRadius: 0)

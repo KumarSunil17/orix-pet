@@ -20,7 +20,7 @@ class IntroScreen extends StatefulWidget {
 
 class _IntroScreenState extends State<IntroScreen> {
   int _currentIndex = 0;
-  PageController _topPageController, _mainPageController;
+  late PageController _topPageController, _mainPageController;
   @override
   void initState() {
     super.initState();

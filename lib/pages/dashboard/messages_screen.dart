@@ -69,8 +69,8 @@ class MessagesScreen extends StatelessWidget {
 class MessageStoryWidget extends StatelessWidget {
   final Widget child;
   final String text;
-  final VoidCallback onPressed;
-  const MessageStoryWidget({this.child, this.text, this.onPressed});
+  final VoidCallback? onPressed;
+  const MessageStoryWidget({required this.child, required this.text, this.onPressed});
 
   @override
   Widget build(BuildContext context) {
@@ -117,7 +117,7 @@ class MessageUserTile extends StatelessWidget {
             color: Colors.white,
             boxShadow: [
               BoxShadow(
-                  color: Colors.grey[200],
+                  color: Colors.grey.shade200,
                   blurRadius: 8,
                   offset: Offset(0, 2),
                   spreadRadius: 0)
